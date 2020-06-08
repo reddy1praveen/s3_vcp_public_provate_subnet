@@ -10,8 +10,8 @@ resource "aws_vpc" "My_VPC" {
   instance_tenancy     = "${var.instanceTenancy}" 
   enable_dns_support   = "${var.dnsSupport}" 
   enable_dns_hostnames = "${var.dnsHostNames}"
-tags {
-    Name = "My VPC"
+  tags {
+      Name = "My VPC"
   }
 } # end resource
 # create the Subnet
@@ -20,8 +20,8 @@ resource "aws_subnet" "My_VPC_Subnet_Public" {
   cidr_block              = "${var.subnetCIDRblock}"
   map_public_ip_on_launch = "${var.mapPublicIP}" 
   availability_zone       = "${var.availabilityZone}"
-tags = {
-   Name = "My VPC Public Subnet"
+  tags = {
+    Name = "My VPC Public Subnet"
   }
 } # end resource
 resource "aws_subnet" "My_VPC_Subnet_Private" {
@@ -30,8 +30,8 @@ resource "aws_subnet" "My_VPC_Subnet_Private" {
   #map_public_ip_on_launch = "${var.mapPublicIP}" 
   availability_zone       = "${var.availabilityZone}"
   map_public_ip_on_launch =  "false"
-tags = {
-   Name = "My VPC Private Subnet"
+  tags = {
+    Name = "My VPC Private Subnet"
   }
 } # end resource
 
@@ -40,11 +40,11 @@ resource "aws_security_group" "My_VPC_Security_Group_Private" {
   vpc_id       = "${aws_vpc.My_VPC.id}"
   name         = "My VPC Security Group Private"
   description  = "My VPC Security Group Private"
-ingress {
-    security_groups = ["${aws_security_group.My_VPC_Security_Group_Public.id}"]
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
+  ingress {
+      security_groups = ["${aws_security_group.My_VPC_Security_Group_Public.id}"]
+      from_port   = 0
+      to_port     = 0
+      protocol    = "-1"
   }
   egress {
     cidr_blocks = ["0.0.0.0/0"]  
@@ -52,19 +52,19 @@ ingress {
     to_port     = 0
     protocol    = "-1"
   }
-tags = {
-        Name = "My VPC Security Group Private"
+  tags = {
+          Name = "My VPC Security Group Private"
   }
 } 
 resource "aws_security_group" "My_VPC_Security_Group_Public" {
   vpc_id       = "${aws_vpc.My_VPC.id}"
   name         = "My VPC Security Group Public"
   description  = "My VPC Security Group Public"
-ingress {
-    cidr_blocks = ["${var.ingressCIDRblockPub}"]
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
+  ingress {
+      cidr_blocks = ["${var.ingressCIDRblockPub}"]
+      from_port   = 22
+      to_port     = 22
+      protocol    = "tcp"
   }
   egress {
     cidr_blocks = ["${var.ingressCIDRblockPub}"]
@@ -72,23 +72,23 @@ ingress {
     to_port     = 0
     protocol    = "-1"
   }
-tags = {
-        Name = "My VPC Security Group Public"
+  tags = {
+          Name = "My VPC Security Group Public"
   }
 }
 
 # Create the Internet Gateway
 resource "aws_internet_gateway" "My_VPC_GW" {
   vpc_id = "${aws_vpc.My_VPC.id}"
-tags {
-        Name = "My VPC Internet Gateway"
-    }
+  tags {
+          Name = "My VPC Internet Gateway"
+  }
 } # end resource
 # Create the Route Table
 resource "aws_route_table" "My_VPC_route_table" {
     vpc_id = "${aws_vpc.My_VPC.id}"
-tags {
-        Name = "My VPC Route Table"
+    tags {
+            Name = "My VPC Route Table"
     }
 } # end resource
 # Create the Internet Access
