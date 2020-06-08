@@ -80,16 +80,16 @@ resource "aws_security_group" "My_VPC_Security_Group_Public" {
 # Create the Internet Gateway
 resource "aws_internet_gateway" "My_VPC_GW" {
   vpc_id = "${aws_vpc.My_VPC.id}"
-  tags {
-          Name = "My VPC Internet Gateway"
-  }
+  #tags {
+  #        Name = "My VPC Internet Gateway"
+ # }
 } # end resource
 # Create the Route Table
 resource "aws_route_table" "My_VPC_route_table" {
     vpc_id = "${aws_vpc.My_VPC.id}"
-    tags {
-            Name = "My VPC Route Table"
-    }
+    #tags {
+    #        Name = "My VPC Route Table"
+    #}
 } # end resource
 # Create the Internet Access
 resource "aws_route" "My_VPC_internet_access" {
