@@ -56,7 +56,7 @@ variable "mapPublicIP" {
 
 variable "bucket_name" {
   type = "string"
-  default = "r2_d2_bucket"
+  default = "r2-d2-bucket"
 }
 
 variable "key_name" {
