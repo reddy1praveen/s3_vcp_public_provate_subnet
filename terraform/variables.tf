@@ -9,10 +9,12 @@ variable "profile" {
 
 variable "public_instance" {
   type = "string"
+  default = "public"
 }
 
 variable "private_instance" {
 type = "string"  
+default = "private"
 }
 
 variable "availabilityZone" {
@@ -54,8 +56,10 @@ variable "mapPublicIP" {
 
 variable "bucket_name" {
   type = "string"
+  default = "r2_d2_bucket"
 }
 
 variable "key_name" {
   type = "string"
+  default = "key_r2_d2"
 }
