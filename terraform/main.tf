@@ -27,7 +27,7 @@ tags = {
 resource "aws_subnet" "My_VPC_Subnet_Private" {
   vpc_id                  = "${aws_vpc.My_VPC.id}"
   cidr_block              = "${var.subnetCIDRblock1}"
-  map_public_ip_on_launch = "${var.mapPublicIP}" 
+  #map_public_ip_on_launch = "${var.mapPublicIP}" 
   availability_zone       = "${var.availabilityZone}"
   map_public_ip_on_launch =  "false"
 tags = {
