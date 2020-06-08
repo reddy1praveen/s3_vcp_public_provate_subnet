@@ -10,9 +10,9 @@ resource "aws_vpc" "My_VPC" {
   instance_tenancy     = "${var.instanceTenancy}" 
   enable_dns_support   = "${var.dnsSupport}" 
   enable_dns_hostnames = "${var.dnsHostNames}"
-  tags {
-      Name = "My VPC"
-  }
+ # tags {
+ #     Name = "My VPC"
+ # }
 } # end resource
 # create the Subnet
 resource "aws_subnet" "My_VPC_Subnet_Public" {
