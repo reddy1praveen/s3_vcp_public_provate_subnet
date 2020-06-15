@@ -1,6 +1,6 @@
 # variables.tf
 variable "region" {
- default = "eu-west-1"
+ default = "eu-central-1"
 }
 
 variable "profile" {
@@ -18,7 +18,7 @@ default = "private"
 }
 
 variable "availabilityZone" {
-        default = "eu-west-1b"
+        default = "eu-central-1b"
 }
 variable "instanceTenancy" {
  default = "default"
@@ -56,7 +56,7 @@ variable "mapPublicIP" {
 
 variable "bucket_name" {
   type = "string"
-  default = "eu-west-1-test-r2-d2-bucket"
+  default = "eu-central-1-test-r2-d2-bucket"
 }
 
 variable "key_name" {
