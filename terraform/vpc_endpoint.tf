@@ -1,6 +1,6 @@
 resource "aws_vpc_endpoint" "s3" {
   vpc_id       = "${aws_vpc.My_VPC.id}"
-  service_name = "com.amazonaws.ap-south-1.s3"
+  service_name = "com.amazonaws.${var.region}.s3"
   
 }
 # associate route table with VPC endpoint
