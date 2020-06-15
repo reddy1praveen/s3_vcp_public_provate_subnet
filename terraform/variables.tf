@@ -18,7 +18,7 @@ default = "private"
 }
 
 variable "availabilityZone" {
-        default = "ap-south-1b"
+        default = "eu-west-1b"
 }
 variable "instanceTenancy" {
  default = "default"
